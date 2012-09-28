@@ -1,0 +1,32 @@
+{
+  "name": "konami",
+  "title": "Konami",
+  "description": "jQuery plugin to detect and respond to Konami codes.",
+  "version": "0.1.0",
+  "homepage": "",
+  "author": {
+    "name": "Brent Ertz",
+    "email": "brent.ertz@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brentertz/konami.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brentertz/konami/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "/blob/master/LICENSE-MIT"
+    },
+    {
+      "type": "GPL",
+      "url": "/blob/master/LICENSE-GPL"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">= 1"
+  },
+  "keywords": []
+}
