@@ -115,10 +115,7 @@ jQuery(function($) {
 });
 ```
 
-_Be sure to check out the [examples][examples] folder.  Send me a pull request if you would like to include your awesome example._
-
-[examples]: https://raw.github.com/brentertz/konami/master/examples
-
+_Be sure to check out the examples folder.  Send me a pull request if you would like to include your awesome example._
 
 ## Release History
 0.1.0 - Initial release
