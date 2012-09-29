@@ -1,6 +1,8 @@
 # Konami
 
-jQuery plugin to detect and respond to Konami codes.
+jQuery plugin to detect and respond to [Konami codes][konami_code].
+
+[konami_code]: http://en.wikipedia.org/wiki/Konami_Code
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
