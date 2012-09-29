@@ -12,24 +12,116 @@ In your web page:
 
 ```html
 <script src="jquery.js"></script>
-<script src="dist/konami.min.js"></script>
+<script src="konami.min.js"></script>
 <script>
 jQuery(function($) {
   $.konami(function(){
-  	alert('Konami');
+  	console.log('Konami');
   });
 });
 </script>
 ```
 
 ## Documentation
-_(Coming soon)_
+
+jQuery plugin to detect keystrokes matching Konami (or custom) code(s) and execute callbacks.
+See [code comments][comments] in src for method signature and details.
+
+[comments]: https://raw.github.com/brentertz/konami/master/src/konami.js
 
 ## Examples
-_(Coming soon)_
+
+### Original Konami Code (↑ ↑ ↓ ↓ ← → ← → B A)
+
+```html
+jQuery(function($) {
+  $.konami(function(){
+  	console.log('Konami');
+  });
+});
+```
+
+### Custom Code (konami)
+
+```html
+jQuery(function($) {
+  $.konami(function(){
+  	console.log('Konami');
+  }, [75,79,78,65,77,73]);
+});
+```
+
+### Multiple Codes (↑ ↑ ↓ ↓ ← → ← → B A)
+
+```html
+jQuery(function($) {
+  $.konami(function(){
+  	console.log('↑ ↑');
+  }, [38,38])
+  .konami(function(){
+  	console.log('↓ ↓');
+  }, [40,40])
+  .konami(function(){
+  	console.log('Konami');
+  });
+});
+```
+
+### Get Creative
+
+#### Cornify (Unicorns and Rainbows)
+
+```html
+jQuery(function($) {
+  $.konami(function(){
+	$(document).off('keyup', arguments.callee.caller);
+    $.getScript('http://www.cornify.com/js/cornify.js', function(){
+      cornify_add();
+      $(document).keydown(cornify_add);
+    });
+  });
+});
+```
+
+#### Browser Ponies
+
+```html
+jQuery(function($) {
+  $.konami(function(){
+    $(document).off('keyup', arguments.callee.caller);
+    $.when(
+      $.getScript('http://panzi.github.com/Browser-Ponies/basecfg.js'),
+      $.getScript('http://panzi.github.com/Browser-Ponies/browserponies.js')
+    ).then(function(){
+      (function(cfg){
+        BrowserPonies.setBaseUrl(cfg.baseurl);
+        BrowserPonies.loadConfig(BrowserPoniesBaseConfig);
+        BrowserPonies.loadConfig(cfg);
+      })({
+        "baseurl":"http://panzi.github.com/Browser-Ponies/",
+        "fadeDuration":500,
+        "volume":1,
+        "fps":25,
+        "speed":3,
+        "audioEnabled":false,
+        "showFps":false,
+        "showLoadProgress":true,
+        "speakProbability":0.1,
+        "spawn":{"applejack":1,"fluttershy":1,"pinkie pie":1,"rainbow dash":1,"rarity":1,"twilight sparkle":1},
+        "autostart":true
+      });
+    });
+  });
+});
+```
+
+_Be sure to check out the [examples][examples] folder.  Send me a pull request if you would like to include your awesome example._
+
+[examples]: https://raw.github.com/brentertz/konami/master/examples
+
 
 ## Release History
-_(Nothing yet)_
+0.1.0 - Initial release
 
 ## License
 Copyright (c) 2012 Brent Ertz

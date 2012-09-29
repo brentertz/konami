@@ -16,7 +16,9 @@
       if(key === next_key){
         entered.push(key);
         if(entered.length === code.length){
-          callback();
+          if(typeof callback === 'function'){
+            callback();
+          }
           entered = [];
         }
       } else {

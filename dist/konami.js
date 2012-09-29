@@ -1,4 +1,4 @@
-/*! Konami - v0.1.0 - 2012-09-27
+/*! Konami - v0.1.0 - 2012-09-29
 * Copyright (c) 2012 Brent Ertz; Licensed MIT, GPL */
 
 (function($){
@@ -19,7 +19,9 @@
       if(key === next_key){
         entered.push(key);
         if(entered.length === code.length){
-          callback();
+          if(typeof callback === 'function'){
+            callback();
+          }
           entered = [];
         }
       } else {

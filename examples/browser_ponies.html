@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Konami Demo</title>
+</head>
+<body>
+</body>
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../dist/konami.min.js"></script>
+<script>
+jQuery(function($) {
+  $.konami(function(){
+    $(document).off('keyup', arguments.callee.caller);
+    $.when(
+      $.getScript('http://panzi.github.com/Browser-Ponies/basecfg.js'),
+      $.getScript('http://panzi.github.com/Browser-Ponies/browserponies.js')
+    ).then(function(){
+      (function(cfg){
+        BrowserPonies.setBaseUrl(cfg.baseurl);
+        BrowserPonies.loadConfig(BrowserPoniesBaseConfig);
+        BrowserPonies.loadConfig(cfg);
+      })({
+        "baseurl":"http://panzi.github.com/Browser-Ponies/",
+        "fadeDuration":500,
+        "volume":1,
+        "fps":25,
+        "speed":3,
+        "audioEnabled":false,
+        "showFps":false,
+        "showLoadProgress":true,
+        "speakProbability":0.1,
+        "spawn":{"applejack":1,"fluttershy":1,"pinkie pie":1,"rainbow dash":1,"rarity":1,"twilight sparkle":1},
+        "autostart":true
+      });
+    });
+  });
+});
+</script>
+</html>

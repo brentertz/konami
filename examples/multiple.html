@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Konami Demo</title>
+</head>
+<body>
+</body>
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../dist/konami.min.js"></script>
+<script>
+jQuery(function($) {
+  $.konami(function(){
+    console.log('↑ ↑');
+  }, [38,38])
+  .konami(function(){
+    console.log('↓ ↓');
+  }, [40,40])
+  .konami(function(){
+    console.log('Konami');
+  });
+});
+</script>
+</html>
